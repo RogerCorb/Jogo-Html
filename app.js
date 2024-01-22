@@ -1,5 +1,6 @@
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
+let numeroChutes = 5;
 
 exibirMensagemInicial();
 
@@ -14,10 +15,10 @@ function verificarChute() {
         habilitaBotaoReiniciar();
     } else { 
         if (chute > numeroSecreto) { 
-            let mensagemMenor = `O numero secreto é menor, vc tem ${5-tentativas} tentativas`;
+            let mensagemMenor = `O numero secreto é menor, vc tem ${numeroChutes-tentativas} tentativas`;
             exibirTextoNaTela('p',mensagemMenor);   
         } else { 
-            let mensagemMaior = `O numero secreto é maior, vc tem ${5-tentativas} tentativas`;
+            let mensagemMaior = `O numero secreto é maior, vc tem ${numeroChutes-tentativas} tentativas`;
             exibirTextoNaTela('p',mensagemMaior);  
         }
         tentativas++;
