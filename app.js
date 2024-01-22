@@ -3,8 +3,6 @@ let tentativas = 1;
 
 exibirMensagemInicial();
 
-console.log(numeroSecreto);
-
 function verificarChute() {  
     const  chute = document.querySelector('input').value;
     
@@ -12,8 +10,8 @@ function verificarChute() {
         exibirTextoNaTela('h1','Acertou');
         let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
         let mensagemTentativas = `Vc descobriu o numero secreto com ${tentativas} ${palavraTentativa}`;
-        exibirTextoNaTela('p',mensagemTentativas); 
-        document.getElementById('reiniciar').removeAttribute('disabled');  // Habilita o botão novo jogo   
+        exibirTextoNaTela('p',mensagemTentativas);        
+        habilitaBotaoReiniciar();
     } else { 
         if (chute > numeroSecreto) { 
             exibirTextoNaTela('p','O numero secreto é menor');   
@@ -21,7 +19,14 @@ function verificarChute() {
             exibirTextoNaTela('p','O numero secreto é maior');  
         }
         tentativas++;
-        limparCampo();
+        if (tentativas == 6) {
+            let mensagemFimTentativas = `Voce usou as ${tentativas-1} tentativas disponíveis ;(`;
+            exibirTextoNaTela('p',mensagemFimTentativas);
+            habilitaBotaoReiniciar();           
+
+        } else { 
+            limparCampo();
+        }
     }
 }
 
@@ -50,6 +55,10 @@ function reiniciarJogo() {
 function exibirMensagemInicial() {
     exibirTextoNaTela('h1','Jogo do numero secreto');
     exibirTextoNaTela('p','escolha um numero entre 01 e 10');    
+}
+
+function habilitaBotaoReiniciar() { 
+    document.getElementById('reiniciar').removeAttribute('disabled');  // Habilita o botão novo jogo
 }
 
 ///**************** ITERAÇÃO FOREACH VARIOS INPUTS*******************
