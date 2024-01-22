@@ -14,9 +14,11 @@ function verificarChute() {
         habilitaBotaoReiniciar();
     } else { 
         if (chute > numeroSecreto) { 
-            exibirTextoNaTela('p','O numero secreto é menor');   
+            let mensagemMenor = `O numero secreto é menor, vc tem ${5-tentativas} tentativas`;
+            exibirTextoNaTela('p',mensagemMenor);   
         } else { 
-            exibirTextoNaTela('p','O numero secreto é maior');  
+            let mensagemMaior = `O numero secreto é maior, vc tem ${5-tentativas} tentativas`;
+            exibirTextoNaTela('p',mensagemMaior);  
         }
         tentativas++;
         if (tentativas == 6) {
