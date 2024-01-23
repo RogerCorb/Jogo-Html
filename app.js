@@ -5,8 +5,8 @@ listaNumerosSorteados.push(numeroSecreto);
 let tentativas = 1;
 let numeroChutes = 5;
 
-exibirMensagemInicial();
 
+exibirMensagemInicial();
 function verificarChute() {  
     const  chute = document.querySelector('input').value;
     
@@ -14,8 +14,9 @@ function verificarChute() {
         exibirTextoNaTela('h1','Acertou');
         let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
         let mensagemTentativas = `Vc descobriu o numero secreto com ${tentativas} ${palavraTentativa}`;
-        exibirTextoNaTela('p',mensagemTentativas);        
-        habilitaBotaoReiniciar();
+        exibirTextoNaTela('p',mensagemTentativas);
+        buttonsOnOffDisabled(true,false);       
+
     } else { 
         if (chute > numeroSecreto) { 
             let mensagemMenor = `O numero secreto é menor, vc tem ${numeroChutes-tentativas} tentativas`;
@@ -25,15 +26,13 @@ function verificarChute() {
             exibirTextoNaTela('p',mensagemMaior);  
         }
         tentativas++;
-        if (tentativas == 6) {
+        if (tentativas == 6) {           
             let mensagemFimTentativas = `Voce usou as ${numeroChutes} tentativas disponíveis ;(`;
             exibirTextoNaTela('p',mensagemFimTentativas);
-            botaoChuteHabilitaDesabilita(true);            
-            habilitaBotaoReiniciar(); 
+            buttonsOnOffDisabled(true,false);                     
         } else { 
             limparCampo();
-        }
-        
+        }        
     }
 }
 
@@ -66,8 +65,7 @@ function reiniciarJogo() {
     limparCampo();
     tentativas = 1 ;
     exibirMensagemInicial();
-    document.getElementById('reiniciar').setAttribute('disabled',true); // desabilita o botão novo jogo
-    botaoChuteHabilitaDesabilita(false);
+    buttonsOnOffDisabled(false,true);    // desabilita ou habilita os botões do jogo.    
 }
 
 function exibirMensagemInicial() {
@@ -75,13 +73,13 @@ function exibirMensagemInicial() {
     exibirTextoNaTela('p','escolha um numero entre 01 e 10');    
 }
 
-function habilitaBotaoReiniciar() { 
-    document.getElementById('reiniciar').removeAttribute('disabled');  // Habilita o botão novo jogo
-}
+function buttonsOnOffDisabled (acaoChute,acaoReiniciar) { 
+    // modifica o atrributo disabled, ligando ou desligando os botões
 
-function botaoChuteHabilitaDesabilita(acao) { 
-    const btnChute =  document.getElementById('chute') //.setAttribute('disable',true)  // desabilita o botão chutar
-    btnChute.disabled = acao;
+    const btnChute =  document.getElementById('chute'); 
+    btnChute.disabled = acaoChute; 
+    const btnReiniciar =  document.getElementById('reiniciar');
+    btnReiniciar.disabled = acaoReiniciar;         
 }
 
 ///**************** ITERAÇÃO FOREACH VARIOS INPUTS*******************
