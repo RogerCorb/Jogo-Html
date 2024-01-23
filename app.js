@@ -28,17 +28,18 @@ function verificarChute() {
         if (tentativas == 6) {
             let mensagemFimTentativas = `Voce usou as ${numeroChutes} tentativas disponíveis ;(`;
             exibirTextoNaTela('p',mensagemFimTentativas);
-            habilitaBotaoReiniciar();           
-
+            botaoChuteHabilitaDesabilita(true);            
+            habilitaBotaoReiniciar(); 
         } else { 
             limparCampo();
         }
+        
     }
 }
 
 function exibirTextoNaTela(tag,texto) {
     let campo = document.querySelector(tag); // seleciona a tag no documento 
-    campo.innerHTML = texto;                 // insere o texto que quero no documento
+    campo.innerHTML = texto;                 // insere o texto que quero no documento   
 }
 
 function gerarNumeroAleatorio() {
@@ -46,8 +47,6 @@ function gerarNumeroAleatorio() {
     let quantidadeElementosNaLista = listaNumerosSorteados.length;
     if (quantidadeElementosNaLista == numeroLimite) {
         listaNumerosSorteados = [];        
-    } else {
-        
     }
     if (listaNumerosSorteados.includes(numeroEscolhido)) {
         return gerarNumeroAleatorio();        
@@ -67,7 +66,8 @@ function reiniciarJogo() {
     limparCampo();
     tentativas = 1 ;
     exibirMensagemInicial();
-    document.getElementById('reiniciar').setAttribute('disabled',true)  // desabilita o botão novo jogo
+    document.getElementById('reiniciar').setAttribute('disabled',true); // desabilita o botão novo jogo
+    botaoChuteHabilitaDesabilita(false);
 }
 
 function exibirMensagemInicial() {
@@ -77,6 +77,11 @@ function exibirMensagemInicial() {
 
 function habilitaBotaoReiniciar() { 
     document.getElementById('reiniciar').removeAttribute('disabled');  // Habilita o botão novo jogo
+}
+
+function botaoChuteHabilitaDesabilita(acao) { 
+    const btnChute =  document.getElementById('chute') //.setAttribute('disable',true)  // desabilita o botão chutar
+    btnChute.disabled = acao;
 }
 
 ///**************** ITERAÇÃO FOREACH VARIOS INPUTS*******************
