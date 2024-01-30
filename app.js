@@ -18,11 +18,13 @@ function verificarChute() {
         buttonsOnOffDisabled(true,false);       
 
     } else { 
+        let palavraTentativa = (numeroChutes-tentativas) > 1 ? 'tentativas' : 'tentativa';
         if (chute > numeroSecreto) { 
-            let mensagemMenor = `O numero secreto é menor, vc tem ${numeroChutes-tentativas} tentativas`;
+
+            let mensagemMenor = `O numero secreto é menor, vc tem ${numeroChutes-tentativas} ${palavraTentativa}`;
             exibirTextoNaTela('p',mensagemMenor);   
         } else { 
-            let mensagemMaior = `O numero secreto é maior, vc tem ${numeroChutes-tentativas} tentativas`;
+            let mensagemMaior = `O numero secreto é maior, vc tem ${numeroChutes-tentativas} ${palavraTentativa}`;
             exibirTextoNaTela('p',mensagemMaior);  
         }
         tentativas++;
