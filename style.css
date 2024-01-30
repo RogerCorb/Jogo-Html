@@ -50,7 +50,7 @@ body::before {
 .container__informacoes {
     display:flex;
     flex-direction: column;
-    width: auto;  
+    width:auto;  
     padding: 3rem;
 }
 
