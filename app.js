@@ -8,13 +8,10 @@ let numeroChutes = 5;
 
 exibirMensagemInicial();
 function verificarChute() {  
-    const  chute = document.querySelector('input').value; 
-    const btnChute = document.getElementById('chute')   
+    const  chute = document.querySelector('input').value;     
 
-    if(chute =='') { 
-        clearInterval(); 
-        exibirTextoNaTela('p',`Vc não informou nenhum número :( `);               
-        setInterval(()=>{exibirTextoNaTela('p','escolha um numero entre 01 e 10')},3500); 
+    if(chute =='') {         
+        exibirTextoNaTela('p',`Vc não informou nenhum número :( `);        
         return 
     } 
     
