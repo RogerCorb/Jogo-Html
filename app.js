@@ -93,34 +93,3 @@ function buttonsOnOffDisabled (acaoChute,acaoReiniciar) {
     const btnReiniciar =  document.getElementById('reiniciar');
     btnReiniciar.disabled = acaoReiniciar;         
 }
-
-// // 1. Selecionar o elemento
-// const meuBotao = document.querySelector('button');
-
-// // 2. Adicionar o listener para quando o mouse ENTRAR no botão
-// meuBotao.addEventListener('mouseenter', function(event) {
-//     console.log('Mouse entrou no botão!');
-//     // Adicione sua lógica aqui (ex: mostrar um tooltip)
-//     // event.target se refere ao próprio botão
-//     event.target.style.backgroundColor = 'purple';
-// });
-
-///**************** ITERAÇÃO FOREACH VARIOS INPUTS*******************
-
-   // const inputs = document.querySelectorAll('input');
-   // Criando um array para armazenar os valores
-   // const valores = [];
-
-   // Iterando sobre os inputs e adicionando seus valores ao array
-   //inputs.forEach(input => {
-   //   valores.push(input.value);
-   //});
-
-   //console.log(valores[1] == numeroSecreto )
-   // Exibindo os valores no console
-   //console.log(valores);   
-   // console.log(numeroSecreto == chute);      
-   // console.log(chute);
-
-
-
