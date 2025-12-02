@@ -77,12 +77,25 @@ function exibirMensagemInicial() {
 
 function buttonsOnOffDisabled (acaoChute,acaoReiniciar) { 
     // modifica o atrributo disabled, ligando ou desligando os botões
+   
 
     const btnChute =  document.getElementById('chute'); 
+    
     btnChute.disabled = acaoChute; 
     const btnReiniciar =  document.getElementById('reiniciar');
     btnReiniciar.disabled = acaoReiniciar;         
 }
+
+// // 1. Selecionar o elemento
+// const meuBotao = document.querySelector('button');
+
+// // 2. Adicionar o listener para quando o mouse ENTRAR no botão
+// meuBotao.addEventListener('mouseenter', function(event) {
+//     console.log('Mouse entrou no botão!');
+//     // Adicione sua lógica aqui (ex: mostrar um tooltip)
+//     // event.target se refere ao próprio botão
+//     event.target.style.backgroundColor = 'purple';
+// });
 
 ///**************** ITERAÇÃO FOREACH VARIOS INPUTS*******************
 

@@ -112,7 +112,12 @@ button {
 }
 
 button:disabled {
-    background-color: gray;
+    background-color: gray;    
+    cursor: not-allowed;   
+    color: #666666; 
+    border: 1px solid #999999; 
+    opacity: 0.7; 
+    pointer-events: none; 
 }
 
 button:hover { 
